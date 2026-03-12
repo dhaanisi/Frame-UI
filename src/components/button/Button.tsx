@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"; // adjust to your utils path
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 font-medium tracking-wide",
-    "transition-all duration-200 ease-out",
+    "transition-all duration-300 ease-in-out",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-40",
     "active:scale-[0.97]",
@@ -14,19 +14,20 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          "bg-zinc-900 text-white",
-          "hover:bg-zinc-700",
-          "focus-visible:ring-zinc-900",
+          "bg-[var(--color-primary)] text-[var(--color-primary-fg)]",
+          "hover:bg-[var(--color-primary-hover)]",
+          "focus-visible:ring-[var(--color-ring)]",
         ],
         secondary: [
-          "bg-white text-zinc-900 border border-zinc-200",
-          "hover:bg-zinc-50 hover:border-zinc-300",
-          "focus-visible:ring-zinc-400",
+          "bg-transparent text-white",
+          "border border-[#B0C4B1]",
+          "hover:bg-[#B0C4B1] hover:text-[var(--color-primary-fg)]",
+          "focus-visible:ring-[#B0C4B1]",
         ],
         ghost: [
-          "bg-transparent text-zinc-700",
-          "hover:bg-zinc-100 hover:text-zinc-900",
-          "focus-visible:ring-zinc-400",
+          "bg-transparent text-[var(--color-text-subtle)]",
+          "hover:bg-[var(--color-secondary-subtle)] hover:text-[var(--color-text)]",
+          "focus-visible:ring-[var(--color-ring)]",
         ],
         destructive: [
           "bg-red-600 text-white",
@@ -35,9 +36,9 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        sm: "h-8 px-3 text-xs rounded-md",
-        md: "h-10 px-4 text-sm rounded-lg",
-        lg: "h-12 px-6 text-base rounded-xl",
+        sm: "h-8 px-3 text-xs rounded-[var(--radius-md)]",
+        md: "h-10 px-4 text-sm rounded-[var(--radius-lg)]",
+        lg: "h-12 px-6 text-base rounded-[var(--radius-xl)]",
       },
       fullWidth: {
         true: "w-full",

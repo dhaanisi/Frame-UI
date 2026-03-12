@@ -1,12 +1,126 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@theme {
-    --color-frame-dark: #00072D;
-    --color-frame-navy: #001C55;
-    --color-frame-primary: #0A2472;
-    --color-frame-accent: #A6E1FA;
+/* ─── Light theme ─────────────────────────────────────────────────────────── */
 
+:root {
+  /* Background */
+  --color-bg:           #F7E1D7;   /* blush cream */
+  --color-bg-subtle:    #f0d8cd;   /* blush cream darker */
+  --color-bg-muted:     #DEDBD2;   /* warm linen */
+
+  /* Surface (cards, inputs, dropdowns) */
+  --color-surface:      #ffffff;
+  --color-surface-raised: #F7E1D7;
+
+  /* Border */
+  --color-border:       #DEDBD2;   /* warm linen */
+  --color-border-strong:#B0C4B1;   /* sage green */
+
+  /* Text */
+  --color-text:         #4A5759;   /* dark teal */
+  --color-text-subtle:  #6b7c7e;   /* dark teal lighter */
+  --color-text-muted:   #9aacad;   /* dark teal muted */
+  --color-text-inverted:#F7E1D7;   /* blush cream */
+
+  /* Primary — Sage green */
+  --color-primary:          #B0C4B1;   /* sage green */
+  --color-primary-hover:    #93ab94;   /* sage green darker */
+  --color-primary-active:   #7a9470;   /* sage green darkest */
+  --color-primary-subtle:   #e8f0e8;   /* sage green tint */
+  --color-primary-muted:    #d4e3d5;   /* sage green light */
+  --color-primary-fg:       #4A5759;   /* dark teal on sage */
+
+  /* Secondary — Dusty rose */
+  --color-secondary:        #EDAFB8;   /* dusty rose */
+  --color-secondary-hover:  #e396a1;   /* dusty rose darker */
+  --color-secondary-active: #d8788a;   /* dusty rose darkest */
+  --color-secondary-subtle: #faeef0;   /* dusty rose tint */
+  --color-secondary-muted:  #f4d0d5;   /* dusty rose light */
+  --color-secondary-fg:     #4A5759;   /* dark teal on rose */
+
+  /* Focus ring */
+  --color-ring:         #B0C4B1;   /* sage green */
+  --color-ring-offset:  #ffffff;
+
+  /* Radius */
+  --radius-sm:   0.375rem;   /* 6px  */
+  --radius-md:   0.5rem;     /* 8px  */
+  --radius-lg:   0.75rem;    /* 12px */
+  --radius-xl:   1rem;       /* 16px */
+  --radius-2xl:  1.5rem;     /* 24px */
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm:  0 1px 2px 0 rgb(74 87 89 / 0.06);
+  --shadow-md:  0 4px 6px -1px rgb(74 87 89 / 0.08), 0 2px 4px -2px rgb(74 87 89 / 0.05);
+  --shadow-lg:  0 10px 15px -3px rgb(74 87 89 / 0.08), 0 4px 6px -4px rgb(74 87 89 / 0.05);
+}
+
+/* ─── Dark theme ──────────────────────────────────────────────────────────── */
+
+.dark {
+  /* Background */
+  --color-bg:           #2e3a3b;   /* dark teal deep */
+  --color-bg-subtle:    #374748;   /* dark teal mid */
+  --color-bg-muted:     #4A5759;   /* dark teal base */
+
+  /* Surface */
+  --color-surface:      #374748;
+  --color-surface-raised: #4A5759;
+
+  /* Border */
+  --color-border:       #4A5759;   /* dark teal */
+  --color-border-strong:#6b7c7e;   /* dark teal lighter */
+
+  /* Text */
+  --color-text:         #F7E1D7;   /* blush cream */
+  --color-text-subtle:  #DEDBD2;   /* warm linen */
+  --color-text-muted:   #9aacad;   /* muted teal */
+  --color-text-inverted:#4A5759;   /* dark teal */
+
+  /* Primary — Sage green (brighter in dark) */
+  --color-primary:          #B0C4B1;   /* sage green */
+  --color-primary-hover:    #c4d4c5;   /* sage green lighter */
+  --color-primary-active:   #d8e4d9;   /* sage green lightest */
+  --color-primary-subtle:   #374748;
+  --color-primary-muted:    #4A5759;
+  --color-primary-fg:       #2e3a3b;   /* dark bg on sage */
+
+  /* Secondary — Dusty rose */
+  --color-secondary:        #EDAFB8;   /* dusty rose */
+  --color-secondary-hover:  #f2c4cb;   /* dusty rose lighter */
+  --color-secondary-active: #f7d8dc;   /* dusty rose lightest */
+  --color-secondary-subtle: #374748;
+  --color-secondary-muted:  #4A5759;
+  --color-secondary-fg:     #2e3a3b;
+
+  /* Focus ring */
+  --color-ring:         #B0C4B1;
+  --color-ring-offset:  #2e3a3b;
+
+  /* Shadow */
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────────────── */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  border-color: var(--color-border);
+}
+
+button {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

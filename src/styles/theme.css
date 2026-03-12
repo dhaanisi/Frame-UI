@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Colors ─────────────────────────────────────────────────────────────── */
+
+  --color-bg:               var(--color-bg);
+  --color-bg-subtle:        var(--color-bg-subtle);
+  --color-bg-muted:         var(--color-bg-muted);
+
+  --color-surface:          var(--color-surface);
+  --color-surface-raised:   var(--color-surface-raised);
+
+  --color-border:           var(--color-border);
+  --color-border-strong:    var(--color-border-strong);
+
+  --color-text:             var(--color-text);
+  --color-text-subtle:      var(--color-text-subtle);
+  --color-text-muted:       var(--color-text-muted);
+  --color-text-inverted:    var(--color-text-inverted);
+
+  --color-primary:          var(--color-primary);
+  --color-primary-hover:    var(--color-primary-hover);
+  --color-primary-subtle:   var(--color-primary-subtle);
+  --color-primary-muted:    var(--color-primary-muted);
+  --color-primary-fg:       var(--color-primary-fg);
+
+  --color-secondary:        var(--color-secondary);
+  --color-secondary-hover:  var(--color-secondary-hover);
+  --color-secondary-subtle: var(--color-secondary-subtle);
+  --color-secondary-muted:  var(--color-secondary-muted);
+  --color-secondary-fg:     var(--color-secondary-fg);
+
+  --color-ring:             var(--color-ring);
+
+  /* ─── Radius ─────────────────────────────────────────────────────────────── */
+
+  --radius-sm:   var(--radius-sm);
+  --radius-md:   var(--radius-md);
+  --radius-lg:   var(--radius-lg);
+  --radius-xl:   var(--radius-xl);
+  --radius-2xl:  var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  /* ─── Shadows ─────────────────────────────────────────────────────────────── */
+
+  --shadow-sm:  var(--shadow-sm);
+  --shadow-md:  var(--shadow-md);
+  --shadow-lg:  var(--shadow-lg);
+}
