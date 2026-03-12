@@ -1,4 +1,12 @@
-@import "taiwindcss";
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@theme {
+    --color-frame-dark: #00072D;
+    --color-frame-navy: #001C55;
+    --color-frame-primary: #0A2472;
+    --color-frame-accent: #A6E1FA;
+
+}
