@@ -182,7 +182,7 @@ export const Calendar = ({
   return (
     <div
       className={cn(
-        "bg-white rounded-2xl border border-zinc-100 shadow-sm p-4 w-72 select-none",
+        "bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-sm)] p-4 w-72 select-none",
         className
       )}
     >
@@ -192,14 +192,14 @@ export const Calendar = ({
           type="button"
           onClick={prevMonth}
           aria-label="Previous month"
-          className="p-1.5 rounded-lg text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 transition-colors"
+          className="p-1.5 rounded-lg text-[var(--color-text-muted)] hover:bg-[var(--color-bg-subtle)] hover:text-[var(--color-text)] transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
 
-        <span className="text-sm font-semibold text-zinc-900">
+        <span className="text-sm font-semibold text-[var(--color-text)]">
           {MONTHS[month]} {year}
         </span>
 
@@ -207,7 +207,7 @@ export const Calendar = ({
           type="button"
           onClick={nextMonth}
           aria-label="Next month"
-          className="p-1.5 rounded-lg text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 transition-colors"
+          className="p-1.5 rounded-lg text-[var(--color-text-muted)] hover:bg-[var(--color-bg-subtle)] hover:text-[var(--color-text)] transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -218,7 +218,7 @@ export const Calendar = ({
       {/* Day headers */}
       <div className="grid grid-cols-7 mb-1">
         {DAYS.map((d) => (
-          <div key={d} className="text-center text-xs font-medium text-zinc-400 py-1">
+          <div key={d} className="text-center text-xs font-medium text-[var(--color-text-muted)] py-1">
             {d}
           </div>
         ))}
@@ -245,9 +245,9 @@ export const Calendar = ({
               className={cn(
                 "relative flex items-center justify-center",
                 // range background strip
-                inRange && "bg-zinc-100",
-                rangeStart && "rounded-l-full bg-zinc-100",
-                rangeEnd && "rounded-r-full bg-zinc-100",
+                inRange && "bg-[var(--color-primary-subtle)]",
+                rangeStart && "rounded-l-full bg-[var(--color-primary-subtle)]",
+                rangeEnd && "rounded-r-full bg-[var(--color-primary-subtle)]",
               )}
             >
               <button
@@ -262,13 +262,13 @@ export const Calendar = ({
                   "w-8 h-8 rounded-full text-xs font-medium transition-all duration-150",
                   "flex items-center justify-center z-10 relative",
                   // default
-                  !selected_ && !disabled && "text-zinc-700 hover:bg-zinc-100",
+                  !selected_ && !disabled && "text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]",
                   // today ring
-                  isToday && !selected_ && "ring-1 ring-zinc-300 font-semibold text-zinc-900",
+                  isToday && !selected_ && "ring-1 ring-[var(--color-primary)] font-semibold text-[var(--color-primary)]",
                   // selected
-                  selected_ && "bg-zinc-900 text-white hover:bg-zinc-700",
+                  selected_ && "bg-[var(--color-primary)] text-[var(--color-primary-fg)] hover:opacity-90",
                   // disabled
-                  disabled && "text-zinc-300 cursor-not-allowed",
+                  disabled && "text-[var(--color-text-muted)] opacity-40 cursor-not-allowed",
                 )}
               >
                 {cell.day}

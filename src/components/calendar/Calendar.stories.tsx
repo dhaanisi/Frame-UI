@@ -109,7 +109,9 @@ export const DisablePast: Story = {
       />
     );
   },
-  args: {},
+  args: {
+    mode: "single"
+  },
 };
 
 export const WithMinMax: Story = {

@@ -48,15 +48,15 @@ export const DatePicker = ({
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "w-full flex items-center justify-between gap-2",
-          "rounded-lg border border-zinc-200 bg-white px-3 py-2.5",
+          "rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2.5",
           "text-sm transition-all duration-150 outline-none",
-          "hover:border-zinc-300",
-          "focus-visible:border-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-900/10",
-          open && "border-zinc-900 ring-2 ring-zinc-900/10",
+          "hover:border-[var(--color-border-strong)]",
+          "focus-visible:border-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/10",
+          open && "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/10",
           inputClassName
         )}
       >
-        <span className={cn(selected != null ? "text-zinc-900" : "text-zinc-400")}>
+        <span className={cn(selected != null ? "text-[var(--color-text)]" : "text-[var(--color-text-muted)]")}>
           {selected != null ? formatDate(selected) : placeholder}
         </span>
         <CalendarIcon />
@@ -129,15 +129,15 @@ export const DateRangePicker = ({
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "w-full flex items-center justify-between gap-2",
-          "rounded-lg border border-zinc-200 bg-white px-3 py-2.5",
+          "rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2.5",
           "text-sm transition-all duration-150 outline-none",
-          "hover:border-zinc-300",
-          "focus-visible:border-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-900/10",
-          open && "border-zinc-900 ring-2 ring-zinc-900/10",
+          "hover:border-[var(--color-border-strong)]",
+          "focus-visible:border-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/10",
+          open && "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/10",
           inputClassName
         )}
       >
-        <span className={cn(selectedRange?.from != null ? "text-zinc-900" : "text-zinc-400")}>
+        <span className={cn(selectedRange?.from != null ? "text-[var(--color-text)]" : "text-[var(--color-text-muted)]")}>
           {label}
         </span>
         <CalendarIcon />
@@ -162,7 +162,7 @@ DateRangePicker.displayName = "DateRangePicker";
 // ─── Icon ────────────────────────────────────────────────────────────────────
 
 const CalendarIcon = (): React.JSX.Element => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-zinc-400 shrink-0">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-[var(--color-text-muted)] shrink-0">
     <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" strokeWidth="1.5" />
     <path d="M5 2v2M11 2v2M2 7h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>

@@ -19,14 +19,14 @@ const CardRoot = ({
   return (
     <div
       className={cn(
-        "bg-white rounded-2xl shadow-sm border border-zinc-100",
+        "bg-[var(--color-surface)] rounded-2xl shadow-[var(--shadow-sm)] border border-[var(--color-border)]",
         "overflow-hidden flex flex-col",
         "transition-all duration-200 ease-out",
         clickable && [
           "cursor-pointer",
-          "hover:shadow-md hover:-translate-y-0.5",
+          "hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5",
           "active:scale-[0.99] active:shadow-sm",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/20",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)]/30",
         ],
         className
       )}
@@ -113,7 +113,7 @@ const CardTitle = ({
 }: CardTitleProps): React.JSX.Element => {
   return (
     <Tag
-      className={cn("text-base font-semibold text-zinc-900 leading-snug", className)}
+      className={cn("text-base font-semibold text-[var(--color-text)] leading-snug", className)}
       {...props}
     >
       {children}
@@ -137,7 +137,7 @@ const CardDescription = ({
 }: CardDescriptionProps): React.JSX.Element => {
   return (
     <p
-      className={cn("text-sm text-zinc-500 leading-relaxed", className)}
+      className={cn("text-sm text-[var(--color-text-subtle)] leading-relaxed", className)}
       {...props}
     >
       {children}
@@ -186,7 +186,7 @@ const CardFooter = ({
   return (
     <div
       className={cn(
-        "px-5 py-4 mt-auto border-t border-zinc-100",
+        "px-5 py-4 mt-auto border-t border-[var(--color-border)]",
         "flex items-center gap-3",
         className
       )}

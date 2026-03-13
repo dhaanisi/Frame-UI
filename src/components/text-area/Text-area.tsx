@@ -79,7 +79,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              "text-sm font-medium leading-none text-zinc-700",
+              "text-sm font-medium leading-none text-[var(--color-text-subtle)]",
               disabled === true && "opacity-50 cursor-not-allowed"
             )}
           >
@@ -101,13 +101,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             showCount && maxLength != null ? `${inputId}-count` : undefined
           }
           className={cn(
-            "w-full rounded-lg border bg-white text-sm text-zinc-900",
-            "placeholder:text-zinc-400 resize-none overflow-hidden",
+            "w-full rounded-lg border bg-[var(--color-surface)] text-sm text-[var(--color-text)]",
+            "placeholder:text-[var(--color-text-muted)] resize-none overflow-hidden",
             "transition-all duration-150 ease-out outline-none",
             "px-3 py-2.5",
-            "border-zinc-200 hover:border-zinc-300",
-            "focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900/10",
-            disabled === true && "opacity-50 cursor-not-allowed bg-zinc-50",
+            "border-[var(--color-border)] hover:border-[var(--color-border-strong)]",
+            "focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10",
+            disabled === true && "opacity-50 cursor-not-allowed bg-[var(--color-bg-subtle)]",
             className
           )}
           {...props}
@@ -119,7 +119,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             id={`${inputId}-count`}
             className={cn(
               "text-xs tabular-nums self-end",
-              charCount >= maxLength ? "text-red-500" : "text-zinc-400"
+              charCount >= maxLength ? "text-red-500" : "text-[var(--color-text-muted)]"
             )}
           >
             {charCount}/{maxLength}
