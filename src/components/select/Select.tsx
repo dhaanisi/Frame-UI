@@ -60,7 +60,7 @@ const ChevronDown = ({ open }: { open: boolean }): React.JSX.Element => (
     height="16"
     viewBox="0 0 16 16"
     fill="none"
-    className={cn("text-zinc-400 shrink-0 transition-transform duration-200", open && "rotate-180")}
+    className={cn("text-[var(--color-text-muted)] shrink-0 transition-transform duration-200", open && "rotate-180")}
   >
     <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
@@ -155,14 +155,14 @@ export const Select = ({
           "w-full flex items-center justify-between gap-2 px-3 py-2 text-sm text-left",
           "transition-colors duration-100 rounded-lg",
           option.disabled === true
-            ? "text-zinc-300 cursor-not-allowed"
-            : "text-zinc-700 hover:bg-zinc-50 cursor-pointer",
-          isSelected(option.value) && option.disabled !== true && "text-zinc-900 font-medium bg-zinc-50",
+            ? "text-[var(--color-text-muted)] cursor-not-allowed"
+            : "text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] cursor-pointer",
+          isSelected(option.value) && option.disabled !== true && "text-[var(--color-text)] font-medium bg-[var(--color-primary-subtle)]",
         )}
       >
         <span>{option.label}</span>
         {isSelected(option.value) && (
-          <span className="text-zinc-900 shrink-0"><CheckIcon /></span>
+          <span className="text-[var(--color-primary)] shrink-0"><CheckIcon /></span>
         )}
       </button>
     ));
@@ -174,7 +174,7 @@ export const Select = ({
         <label
           htmlFor={id}
           className={cn(
-            "text-sm font-medium leading-none text-zinc-700",
+            "text-sm font-medium leading-none text-[var(--color-text-subtle)]",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >
@@ -194,16 +194,16 @@ export const Select = ({
           onClick={() => setOpen((v) => !v)}
           className={cn(
             "w-full flex items-center justify-between gap-2",
-            "rounded-lg border bg-white px-3 py-2.5 text-sm",
+            "rounded-lg border bg-[var(--color-surface)] px-3 py-2.5 text-sm",
             "transition-all duration-150 outline-none text-left",
-            "border-zinc-200 hover:border-zinc-300",
-            "focus-visible:border-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-900/10",
-            open && "border-zinc-900 ring-2 ring-zinc-900/10",
-            disabled && "opacity-50 cursor-not-allowed bg-zinc-50",
+            "border-[var(--color-border)] hover:border-[var(--color-border-strong)]",
+            "focus-visible:border-[var(--color-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/10",
+            open && "border-[var(--color-primary)] ring-2 ring-[var(--color-primary)]/10",
+            disabled && "opacity-50 cursor-not-allowed bg-[var(--color-bg-subtle)]",
             className
           )}
         >
-          <span className={cn("truncate", !hasValue && "text-zinc-400")}>
+          <span className={cn("truncate", !hasValue && "text-[var(--color-text-muted)]")}>
             {triggerLabel}
           </span>
           <ChevronDown open={open} />
@@ -216,7 +216,7 @@ export const Select = ({
             aria-multiselectable={multi}
             className={cn(
               "absolute top-full left-0 right-0 mt-1.5 z-50",
-              "bg-white rounded-xl border border-zinc-100 shadow-lg",
+              "bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] shadow-[var(--shadow-lg)]",
               "p-1.5 max-h-60 overflow-y-auto",
               "animate-in fade-in-0 zoom-in-95 duration-100"
             )}
@@ -225,8 +225,8 @@ export const Select = ({
               if (isGroup(item)) {
                 return (
                   <div key={`${item.group}-${idx}`}>
-                    {idx > 0 && <div className="my-1 border-t border-zinc-100" />}
-                    <p className="px-3 py-1.5 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+                    {idx > 0 && <div className="my-1 border-t border-[var(--color-border)]" />}
+                    <p className="px-3 py-1.5 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">
                       {item.group}
                     </p>
                     {renderOptions(item.options)}
@@ -241,7 +241,7 @@ export const Select = ({
 
       {/* Helper text */}
       {helperText != null && (
-        <p className="text-xs text-zinc-400 leading-tight">{helperText}</p>
+        <p className="text-xs text-[var(--color-text-muted)] leading-tight">{helperText}</p>
       )}
 
       {/* Multi: selected tags */}
@@ -250,14 +250,14 @@ export const Select = ({
           {values.map((v) => (
             <span
               key={v}
-              className="inline-flex items-center gap-1 bg-zinc-100 text-zinc-700 text-xs font-medium px-2 py-0.5 rounded-md"
+              className="inline-flex items-center gap-1 bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-medium px-2 py-0.5 rounded-md"
             >
               {getLabel(items, v)}
               <button
                 type="button"
                 aria-label={`Remove ${getLabel(items, v)}`}
                 onClick={() => onChangeMulti?.(values.filter((val) => val !== v))}
-                className="text-zinc-400 hover:text-zinc-700 transition-colors leading-none"
+                className="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors leading-none"
               >
                 ×
               </button>
