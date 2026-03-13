@@ -12,8 +12,8 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        solid: "bg-zinc-900 text-white",
-        soft:  "bg-zinc-100 text-zinc-700",
+        solid: "bg-[var(--color-primary)] text-[var(--color-primary-fg)]",
+        soft:  "bg-[var(--color-primary-subtle)] text-[var(--color-primary)]",
       },
       size: {
         sm: "px-2 py-0.5 text-xs rounded-md",
