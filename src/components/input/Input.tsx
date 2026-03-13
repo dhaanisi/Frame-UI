@@ -79,7 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             htmlFor={inputId}
             className={cn(
               "text-sm font-medium leading-none",
-              hasError ? "text-red-600" : "text-zinc-700",
+              hasError ? "text-red-500" : "text-[var(--color-text-subtle)]",
               disabled === true && "opacity-50 cursor-not-allowed"
             )}
           >
@@ -94,7 +94,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <span
               className={cn(
                 "absolute left-3 flex items-center pointer-events-none",
-                hasError ? "text-red-400" : "text-zinc-400"
+                hasError ? "text-red-400" : "text-[var(--color-text-muted)]"
               )}
             >
               {leadingIcon}
@@ -116,8 +116,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
             className={cn(
               // base
-              "w-full rounded-lg border bg-white text-sm text-zinc-900",
-              "placeholder:text-zinc-400",
+              "w-full rounded-lg border bg-[var(--color-surface)] text-sm text-[var(--color-text)]",
+              "placeholder:text-[var(--color-text-muted)]",
               "transition-all duration-150 ease-out outline-none",
               // padding — adjust for icons
               hasLeading ? "pl-9" : "pl-3",
@@ -125,9 +125,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               "py-2.5",
               // default border & focus
               !hasError && [
-                "border-zinc-200",
-                "hover:border-zinc-300",
-                "focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900/10",
+                "border-[var(--color-border)]",
+                "hover:border-[var(--color-border-strong)]",
+                "focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10",
               ],
               // error state
               hasError && [
@@ -136,7 +136,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 "focus:border-red-500 focus:ring-2 focus:ring-red-500/10",
               ],
               // disabled
-              disabled === true && "opacity-50 cursor-not-allowed bg-zinc-50",
+              disabled === true && "opacity-50 cursor-not-allowed bg-[var(--color-bg-subtle)]",
               className
             )}
             {...props}
@@ -147,7 +147,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <span
               className={cn(
                 "absolute right-3 flex items-center pointer-events-none",
-                hasError ? "text-red-400" : "text-zinc-400"
+                hasError ? "text-red-400" : "text-[var(--color-text-muted)]"
               )}
             >
               {trailingIcon}
@@ -173,7 +173,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               id={`${inputId}-count`}
               className={cn(
                 "text-xs tabular-nums shrink-0 ml-auto",
-                charCount >= maxLength ? "text-red-500" : "text-zinc-400"
+                charCount >= maxLength ? "text-red-500" : "text-[var(--color-text-muted)]"
               )}
             >
               {charCount}/{maxLength}
