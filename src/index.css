@@ -1,110 +1,202 @@
 @import "tailwindcss";
 
-/* ─── Light theme ─────────────────────────────────────────────────────────── */
+/* ================================================================
+   FRAME UI — Blue Theme System
+   Dark mode first. Four swappable blue themes.
+   Apply theme via data-theme attribute on <html> or <body>.
+   e.g. <html class="dark" data-theme="electric">
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   BASE TOKENS (shared across all themes)
+   ---------------------------------------------------------------- */
 
 :root {
-  /* Background */
-  --color-bg:           #F7E1D7;   /* blush cream */
-  --color-bg-subtle:    #f0d8cd;   /* blush cream darker */
-  --color-bg-muted:     #DEDBD2;   /* warm linen */
-
-  /* Surface (cards, inputs, dropdowns) */
-  --color-surface:      #ffffff;
-  --color-surface-raised: #F7E1D7;
-
-  /* Border */
-  --color-border:       #DEDBD2;   /* warm linen */
-  --color-border-strong:#B0C4B1;   /* sage green */
-
-  /* Text */
-  --color-text:         #4A5759;   /* dark teal */
-  --color-text-subtle:  #6b7c7e;   /* dark teal lighter */
-  --color-text-muted:   #9aacad;   /* dark teal muted */
-  --color-text-inverted:#F7E1D7;   /* blush cream */
-
-  /* Primary — Sage green */
-  --color-primary:          #B0C4B1;   /* sage green */
-  --color-primary-hover:    #93ab94;   /* sage green darker */
-  --color-primary-active:   #7a9470;   /* sage green darkest */
-  --color-primary-subtle:   #e8f0e8;   /* sage green tint */
-  --color-primary-muted:    #d4e3d5;   /* sage green light */
-  --color-primary-fg:       #4A5759;   /* dark teal on sage */
-
-  /* Secondary — Dusty rose */
-  --color-secondary:        #EDAFB8;   /* dusty rose */
-  --color-secondary-hover:  #e396a1;   /* dusty rose darker */
-  --color-secondary-active: #d8788a;   /* dusty rose darkest */
-  --color-secondary-subtle: #faeef0;   /* dusty rose tint */
-  --color-secondary-muted:  #f4d0d5;   /* dusty rose light */
-  --color-secondary-fg:     #4A5759;   /* dark teal on rose */
-
-  /* Focus ring */
-  --color-ring:         #B0C4B1;   /* sage green */
-  --color-ring-offset:  #ffffff;
-
-  /* Radius */
-  --radius-sm:   0.375rem;   /* 6px  */
-  --radius-md:   0.5rem;     /* 8px  */
-  --radius-lg:   0.75rem;    /* 12px */
-  --radius-xl:   1rem;       /* 16px */
-  --radius-2xl:  1.5rem;     /* 24px */
+  --radius-sm:   0.375rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
   --radius-full: 9999px;
 
-  /* Shadow */
-  --shadow-sm:  0 1px 2px 0 rgb(74 87 89 / 0.06);
-  --shadow-md:  0 4px 6px -1px rgb(74 87 89 / 0.08), 0 2px 4px -2px rgb(74 87 89 / 0.05);
-  --shadow-lg:  0 10px 15px -3px rgb(74 87 89 / 0.08), 0 4px 6px -4px rgb(74 87 89 / 0.05);
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
 }
 
-/* ─── Dark theme ──────────────────────────────────────────────────────────── */
+/* ----------------------------------------------------------------
+   THEME 1 — ELECTRIC (vibrant blue + cyan accent)
+   ---------------------------------------------------------------- */
+
+[data-theme="electric"] {
+  --blue-50:  #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+  --blue-900: #1e3a8a;
+
+  --accent:       #06b6d4;
+  --accent-hover: #0891b2;
+  --accent-fg:    #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   THEME 2 — NAVY (deep indigo + violet accent)
+   ---------------------------------------------------------------- */
+
+[data-theme="navy"] {
+  --blue-50:  #eef2ff;
+  --blue-100: #e0e7ff;
+  --blue-200: #c7d2fe;
+  --blue-300: #a5b4fc;
+  --blue-400: #818cf8;
+  --blue-500: #6366f1;
+  --blue-600: #4f46e5;
+  --blue-700: #4338ca;
+  --blue-800: #3730a3;
+  --blue-900: #312e81;
+
+  --accent:       #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-fg:    #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   THEME 3 — OCEAN (cool cyan + emerald accent)
+   ---------------------------------------------------------------- */
+
+[data-theme="ocean"] {
+  --blue-50:  #ecfeff;
+  --blue-100: #cffafe;
+  --blue-200: #a5f3fc;
+  --blue-300: #67e8f9;
+  --blue-400: #22d3ee;
+  --blue-500: #06b6d4;
+  --blue-600: #0891b2;
+  --blue-700: #0e7490;
+  --blue-800: #155e75;
+  --blue-900: #164e63;
+
+  --accent:       #10b981;
+  --accent-hover: #059669;
+  --accent-fg:    #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   THEME 4 — PASTEL (sky blue + pink accent)
+   ---------------------------------------------------------------- */
+
+[data-theme="pastel"] {
+  --blue-50:  #f0f9ff;
+  --blue-100: #e0f2fe;
+  --blue-200: #bae6fd;
+  --blue-300: #7dd3fc;
+  --blue-400: #38bdf8;
+  --blue-500: #0ea5e9;
+  --blue-600: #0284c7;
+  --blue-700: #0369a1;
+  --blue-800: #075985;
+  --blue-900: #0c4a6e;
+
+  --accent:       #e879f9;
+  --accent-hover: #d946ef;
+  --accent-fg:    #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   DARK MODE SEMANTIC TOKENS
+   ---------------------------------------------------------------- */
 
 .dark {
-  /* Background */
-  --color-bg:           #2e3a3b;   /* dark teal deep */
-  --color-bg-subtle:    #374748;   /* dark teal mid */
-  --color-bg-muted:     #4A5759;   /* dark teal base */
+  --color-bg:             #09090b;
+  --color-bg-subtle:      #111113;
+  --color-bg-muted:       #18181b;
 
-  /* Surface */
-  --color-surface:      #374748;
-  --color-surface-raised: #4A5759;
+  --color-surface:        #18181b;
+  --color-surface-raised: #1f1f23;
 
-  /* Border */
-  --color-border:       #4A5759;   /* dark teal */
-  --color-border-strong:#6b7c7e;   /* dark teal lighter */
+  --color-border:         #27272a;
+  --color-border-strong:  var(--blue-800);
 
-  /* Text */
-  --color-text:         #F7E1D7;   /* blush cream */
-  --color-text-subtle:  #DEDBD2;   /* warm linen */
-  --color-text-muted:   #9aacad;   /* muted teal */
-  --color-text-inverted:#4A5759;   /* dark teal */
+  --color-text:           #fafafa;
+  --color-text-subtle:    #a1a1aa;
+  --color-text-muted:     #52525b;
+  --color-text-inverted:  #09090b;
 
-  /* Primary — Sage green (brighter in dark) */
-  --color-primary:          #B0C4B1;   /* sage green */
-  --color-primary-hover:    #c4d4c5;   /* sage green lighter */
-  --color-primary-active:   #d8e4d9;   /* sage green lightest */
-  --color-primary-subtle:   #374748;
-  --color-primary-muted:    #4A5759;
-  --color-primary-fg:       #2e3a3b;   /* dark bg on sage */
+  --color-primary:        var(--blue-500);
+  --color-primary-hover:  var(--blue-400);
+  --color-primary-active: var(--blue-300);
+  --color-primary-subtle: color-mix(in srgb, var(--blue-500) 12%, transparent);
+  --color-primary-muted:  color-mix(in srgb, var(--blue-500) 20%, transparent);
+  --color-primary-fg:     #ffffff;
 
-  /* Secondary — Dusty rose */
-  --color-secondary:        #EDAFB8;   /* dusty rose */
-  --color-secondary-hover:  #f2c4cb;   /* dusty rose lighter */
-  --color-secondary-active: #f7d8dc;   /* dusty rose lightest */
-  --color-secondary-subtle: #374748;
-  --color-secondary-muted:  #4A5759;
-  --color-secondary-fg:     #2e3a3b;
+  --color-secondary:        var(--accent);
+  --color-secondary-hover:  var(--accent-hover);
+  --color-secondary-subtle: color-mix(in srgb, var(--accent) 12%, transparent);
+  --color-secondary-muted:  color-mix(in srgb, var(--accent) 20%, transparent);
+  --color-secondary-fg:     var(--accent-fg);
 
-  /* Focus ring */
-  --color-ring:         #B0C4B1;
-  --color-ring-offset:  #2e3a3b;
-
-  /* Shadow */
-  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --color-ring:        var(--blue-500);
+  --color-ring-offset: #09090b;
 }
 
-/* ─── Base styles ─────────────────────────────────────────────────────────── */
+/* ----------------------------------------------------------------
+   LIGHT MODE SEMANTIC TOKENS
+   ---------------------------------------------------------------- */
+
+:root:not(.dark) {
+  --color-bg:             #ffffff;
+  --color-bg-subtle:      var(--blue-50);
+  --color-bg-muted:       var(--blue-100);
+
+  --color-surface:        #ffffff;
+  --color-surface-raised: var(--blue-50);
+
+  --color-border:         var(--blue-100);
+  --color-border-strong:  var(--blue-300);
+
+  --color-text:           #09090b;
+  --color-text-subtle:    #52525b;
+  --color-text-muted:     #a1a1aa;
+  --color-text-inverted:  #ffffff;
+
+  --color-primary:        var(--blue-600);
+  --color-primary-hover:  var(--blue-700);
+  --color-primary-active: var(--blue-800);
+  --color-primary-subtle: var(--blue-50);
+  --color-primary-muted:  var(--blue-100);
+  --color-primary-fg:     #ffffff;
+
+  --color-secondary:        var(--accent);
+  --color-secondary-hover:  var(--accent-hover);
+  --color-secondary-subtle: color-mix(in srgb, var(--accent) 10%, transparent);
+  --color-secondary-muted:  color-mix(in srgb, var(--accent) 18%, transparent);
+  --color-secondary-fg:     var(--accent-fg);
+
+  --color-ring:        var(--blue-600);
+  --color-ring-offset: #ffffff;
+
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.06);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+}
+
+/* ----------------------------------------------------------------
+   BASE STYLES
+   ---------------------------------------------------------------- */
+
+html {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
 
 body {
   background-color: var(--color-bg);
@@ -123,4 +215,5 @@ body {
 button {
   transition-property: color, background-color, border-color, box-shadow, transform, opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }

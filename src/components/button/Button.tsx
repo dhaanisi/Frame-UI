@@ -7,32 +7,50 @@ const buttonVariants = cva(
     "inline-flex items-center justify-center gap-2 font-medium tracking-wide",
     "transition-all duration-300 ease-in-out",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+    "focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-[var(--color-bg)]",
     "disabled:pointer-events-none disabled:opacity-40",
-    "active:scale-[0.97]",
+    "active:scale-[0.97] active:translate-y-0",
   ],
   {
     variants: {
       variant: {
+        // Primary — lift + deeper shadow on hover
         primary: [
-          "bg-[var(--color-primary)] text-[var(--color-primary-fg)]",
-          "hover:bg-[var(--color-primary-hover)]",
-          "focus-visible:ring-[var(--color-ring)]",
+          "relative bg-[var(--color-primary)] text-[var(--color-primary-fg)]",
+          "shadow-[0_1px_2px_rgb(0_0_0/0.3)]",
+          "hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_color-mix(in_srgb,var(--color-primary)_50%,transparent)]",
         ],
+
+        // Secondary — split: left accent bar + outlined body, fills on hover
         secondary: [
-          "bg-transparent text-white",
-          "border border-[#B0C4B1]",
-          "hover:bg-[#B0C4B1] hover:text-[var(--color-primary-fg)]",
-          "focus-visible:ring-[#B0C4B1]",
+          "relative bg-transparent text-[var(--color-text)]",
+          "border border-[var(--color-primary)]",
+          "before:absolute before:inset-y-0 before:left-0 before:w-1",
+          "before:bg-[var(--color-primary)] before:rounded-l-[inherit]",
+          "before:transition-all before:duration-300 before:ease-in-out",
+          "hover:before:w-full hover:text-[var(--color-primary-fg)]",
+          "hover:-translate-y-0.5 hover:shadow-[0_6px_16px_-4px_color-mix(in_srgb,var(--color-primary)_40%,transparent)]",
+          "overflow-hidden",
+          "[&>*]:relative [&>*]:z-10",
         ],
+
+        // Ghost — glow ring blooms on hover
         ghost: [
           "bg-transparent text-[var(--color-text-subtle)]",
-          "hover:bg-[var(--color-secondary-subtle)] hover:text-[var(--color-text)]",
-          "focus-visible:ring-[var(--color-ring)]",
+          "ring-1 ring-transparent",
+          "hover:text-[var(--color-primary)]",
+          "hover:ring-[var(--color-primary)]",
+          "hover:shadow-[0_0_12px_2px_color-mix(in_srgb,var(--color-primary)_25%,transparent)]",
+          "hover:bg-[color-mix(in_srgb,var(--color-primary)_8%,transparent)]",
         ],
+
+        // Destructive — lift + red glow
         destructive: [
           "bg-red-600 text-white",
-          "hover:bg-red-500",
-          "focus-visible:ring-red-600",
+          "shadow-[0_1px_2px_rgb(0_0_0/0.3)]",
+          "hover:-translate-y-0.5 hover:bg-red-500",
+          "hover:shadow-[0_8px_20px_-4px_rgb(220_38_38/0.5)]",
+          "focus-visible:ring-red-500",
         ],
       },
       size: {
